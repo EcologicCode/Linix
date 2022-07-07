@@ -18,7 +18,7 @@ jobs:
   # This workflow contains a single job called "build"
   Construction:
     # The type of runner that the job will run on
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-lastest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -28,9 +28,10 @@ jobs:
       # Runs a single command using the runners shell
       - name: Téléchargement des packages apt
         run: |
-          sudo add-apt-repository ppa:nemh/systemback
-          sudo apt-get update
-          sudo apt-get install systemback
+          sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 382003C2C8B7B4AB813E915B14E4942973C62A1B
+          sudo add-apt-repository "deb http://ppa.launchpad.net/nemh/systemback/ubuntu xenial main"
+          sudo apt update
+          sudo apt install systemback
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
